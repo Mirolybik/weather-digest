@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Моя Погода</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background-color: #f0f8ff; }
+        .container { max-width: 600px; margin: 0 auto; background: white; padding: 20px; border-radius: 10px; }
+        table { border-collapse: collapse; width: 100%; margin-top: 15px; }
+        th, td { border: 1px solid #ccc; padding: 10px; text-align: center; }
+        th { background-color: #e0e0e0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Просмотр отчета о погоде</h1>
+        <p>Выбери JSON файлик из папки reports:</p>
+        <input type="file" id="myFileInput" accept=".json">
+
+        <div id="resultDiv" style="display: none;">
+            <h2 id="cityTitle"></h2>
+            <p id="coordsText"></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Дата</th>
+                        <th>Мин. темп</th>
+                        <th>Макс. темп</th>
+                        <th>Осадки (мм)</th>
+                    </tr>
+                </thead>
+                <tbody id="myTableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
