@@ -1,0 +1,50 @@
+{
+  "info": {
+    "name": "Weather Digest API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Geocoding (Поиск города)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrlGeo}}?name={{city}}&count=1&language=ru&format=json",
+          "host": ["{{baseUrlGeo}}"],
+          "query": [
+            {"key": "name", "value": "{{city}}"},
+            {"key": "count", "value": "1"},
+            {"key": "language", "value": "ru"},
+            {"key": "format", "value": "json"}
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2. Forecast (Прогноз погоды)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrlWeather}}?latitude={{lat}}&longitude={{lon}}&daily=temperature_2m_max,temperature_2m_min,precipitation_sum&forecast_days=3&timezone=auto",
+          "host": ["{{baseUrlWeather}}"],
+          "query": [
+            {"key": "latitude", "value": "{{lat}}"},
+            {"key": "longitude", "value": "{{lon}}"},
+            {"key": "daily", "value": "temperature_2m_max,temperature_2m_min,precipitation_sum"},
+            {"key": "forecast_days", "value": "3"},
+            {"key": "timezone", "value": "auto"}
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {"key": "baseUrlGeo", "value": "https://geocoding-api.open-meteo.com/v1/search"},
+    {"key": "baseUrlWeather", "value": "https://api.open-meteo.com/v1/forecast"},
+    {"key": "city", "value": "Нижний Новгород"},
+    {"key": "lat", "value": "56.3287"},
+    {"key": "lon", "value": "44.002"}
+  ]
+}
